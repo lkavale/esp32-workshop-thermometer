@@ -1,6 +1,10 @@
 #ifndef MESSAGE_FORMATTER_H
 #define MESSAGE_FORMATTER_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @brief Format sensor data message as JSON
  *
@@ -29,5 +33,9 @@
  * @note The returned string must be freed by the caller using free().
  */
 char *format_message(const char *id, const char *sensor, float *temperature, float *humidity, float *voltage);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // MESSAGE_FORMATTER_H
