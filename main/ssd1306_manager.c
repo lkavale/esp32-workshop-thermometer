@@ -126,15 +126,15 @@ static void draw_screen_temperatures(void)
     ssd1306_draw_string(ssd1306_dev, 0, 0, (uint8_t *)"== SENSORS ==", 12, 1);
     
     // DS18B20
-    snprintf(line, sizeof(line), "DS18B20: %.1f*C", cached_ds_temp);
+    snprintf(line, sizeof(line), "DS18B20: %.1f *C", cached_ds_temp);
     ssd1306_draw_string(ssd1306_dev, 0, 16, (uint8_t *)line, 12, 1);
     
     // DHT22 Temp
-    snprintf(line, sizeof(line), "T DHT22: %.1f*C", cached_dht_temp);
+    snprintf(line, sizeof(line), "T DHT22: %.1f *C", cached_dht_temp);
     ssd1306_draw_string(ssd1306_dev, 0, 28, (uint8_t *)line, 12, 1);
     
     // DHT22 Humidity
-    snprintf(line, sizeof(line), "H DHT22: %.1f%%", cached_dht_humidity);
+    snprintf(line, sizeof(line), "H DHT22: %.1f% %", cached_dht_humidity);
     ssd1306_draw_string(ssd1306_dev, 0, 40, (uint8_t *)line, 12, 1);
 }
 
