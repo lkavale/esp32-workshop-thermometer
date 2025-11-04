@@ -1,0 +1,51 @@
+menu "Example Configuration"
+
+    config WIFI_SSID
+        string "WiFi SSID"
+        default "SSID_Name"
+        help
+            SSID of the WiFi network to connect to
+
+    config WIFI_PASS
+        string "WiFi Password" 
+        default "WiFi_Password"
+        help
+            Password of the WiFi network to connect to  
+
+    config BROKER_URL
+        string "Broker URL"
+        default "Broker_URL"
+        help
+            URL of the broker to connect to
+
+    config ADC_GPIO
+        int "Voltage sensor GPIO"
+        default 0
+        help
+            GPIO number for the voltage sensor
+
+    config BUTTON0_GPIO
+        int "Button 0 GPIO"
+        default 1
+        help
+            GPIO number for Button 0
+
+    config BUTTON1_GPIO
+        int "Button 1 GPIO"
+        default 2
+        help
+            GPIO number for Button 1
+
+    config DHT22_GPIO
+        int "DHT22 GPIO"
+        default 4
+        help
+            GPIO number for DHT22 sensor
+
+    config ONEWIRE_BUS_GPIO
+        int "OneWire Bus GPIO"
+        default 10
+        help
+            GPIO number for OneWire Bus
+
+endmenu
