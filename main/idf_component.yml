@@ -1,0 +1,4 @@
+dependencies:
+  esp-idf-lib/dht: ^1.1.7
+  espressif/ds18b20: ^0.2.0
+  espressif/ssd1306: ^1.0.5~1

@@ -1,0 +1,8 @@
+/build
+/managed_components
+/.vscode
+main/cert/ca.crt
+main/cert/client.crt
+main/cert/client.key
+sdkconfig.old
+sdkconfig
