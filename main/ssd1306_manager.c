@@ -134,7 +134,7 @@ static void draw_screen_temperatures(void)
     ssd1306_draw_string(ssd1306_dev, 0, 28, (uint8_t *)line, 12, 1);
     
     // DHT22 Humidity
-    snprintf(line, sizeof(line), "H DHT22: %.1f% %", cached_dht_humidity);
+    snprintf(line, sizeof(line), "H DHT22: %.1f %%", cached_dht_humidity);
     ssd1306_draw_string(ssd1306_dev, 0, 40, (uint8_t *)line, 12, 1);
 }
 
