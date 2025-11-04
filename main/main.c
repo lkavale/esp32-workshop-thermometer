@@ -16,7 +16,7 @@
 #include "wifi_manager.h"
 #include "mqtt_manager.h"
 #include "system.h"
-#include "messages/temperature_message_formatter.h"
+#include "messages/message_formatter.h"
 #include <stdlib.h>
 
 static const char *TAG = "example";
@@ -96,7 +96,7 @@ void app_main(void)
         ds18b20_manager_get_device_address(0, rom_code_s);
         ds18b20_manager_read_temperature(0, &ds_temperature);
         /* format_temperature_message returns an allocated string; use it and free it */
-        char *json_msg = format_temperature_message(rom_code_s, "DS18B20", &ds_temperature, NULL, NULL);
+        char *json_msg = format_message(rom_code_s, "DS18B20", &ds_temperature, NULL, NULL);
         if (json_msg) {
             ESP_LOGI(TAG, "DS18B20 message: %s", json_msg);
             mqtt_manager_publish("test/sensors/temperature", json_msg, 1, false);
@@ -118,7 +118,7 @@ void app_main(void)
         }
         
         /* format_temperature_message returns an allocated string; use it and free it */
-        char *json_msg2 = format_temperature_message("T01", "DHT22", &dht_temperature, &dht_humidity, NULL);
+        char *json_msg2 = format_message("T01", "DHT22", &dht_temperature, &dht_humidity, NULL);
         if (json_msg2) {
             ESP_LOGI(TAG, "DHT22 message: %s", json_msg2);
             mqtt_manager_publish("test/sensors/temperature", json_msg2, 1, false);
@@ -139,7 +139,7 @@ void app_main(void)
         voltage_v = voltage_mv / 1000.0f;
     
         /* format_temperature_message returns an allocated string; use it and free it */
-        char *json_msg3 = format_temperature_message("T01", "V", NULL, NULL, &voltage_v);
+        char *json_msg3 = format_message("T01", "V", NULL, NULL, &voltage_v);
         if (json_msg3) {
             ESP_LOGI(TAG, "ADC message: %s", json_msg3);
             mqtt_manager_publish("test/sensors/voltage", json_msg3, 1, false);
